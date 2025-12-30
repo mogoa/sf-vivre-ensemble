@@ -50,6 +50,7 @@ jobs:
       - name: Install Composer dependencies
         if: steps.composer-cache.outputs.cache-hit != 'true'
         run: |
+          npm install
           composer install --no-ansi --no-interaction --no-progress --prefer-dist
           php bin/console tailwind:build
           php bin/console asset-map:compile
