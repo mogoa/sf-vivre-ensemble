@@ -14,7 +14,7 @@ env:
   PHP_VERSION: 8.3
   DATABASE_URL: sqlite:///%kernel.project_dir%/var/data/data.db
   DBAL_DRIVER: pdo_sqlite
-  APP_ENV: test
+  APP_ENV: prod
 
 # Default to bash
 defaults:
@@ -37,8 +37,8 @@ jobs:
           extensions: mbstring, intl, pdo_sqlite
           coverage: none
 
-      - name: Copy .env.test.local
-        run: php -r "file_exists('.env.test.local') || copy('.env.test', '.env.test.local');"
+#      - name: Copy .env.test.local
+#        run: php -r "file_exists('.env.test.local') || copy('.env.test', '.env.test.local');"
 
       - name: Cache Composer packages
         id: composer-cache
