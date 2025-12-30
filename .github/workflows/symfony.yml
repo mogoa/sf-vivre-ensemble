@@ -92,7 +92,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: symfony-site
-          path: ./artefact
+          path: ./artefact/
       # FTP/SFTP deployment
       - name: Deploy to Plesk via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -100,7 +100,7 @@ jobs:
           server: ${{ secrets.O2SWITCH_HOST }}
           username: ${{ secrets.O2SWITCH_USERNAME }}
           password: ${{ secrets.O2SWITCH_PASSWORD }}
-          local-dir: ./artefact # Adjust if needed
+          local-dir: ./artefact/ # Adjust if needed
           server-dir: /www/sf-vivre-ensemble/
           exclude: |
             **/.git*
