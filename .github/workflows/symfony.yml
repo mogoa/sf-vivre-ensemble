@@ -1,0 +1,107 @@
+# Sample workflow for building and deploying a Hugo site to GitHub Pages
+name: Symfony CI/CD with ftp Deploy
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  PHP_VERSION: 8.3
+  DATABASE_URL: sqlite:///%kernel.project_dir%/var/data/data.db
+  DBAL_DRIVER: pdo_sqlite
+  APP_ENV: test
+
+# Default to bash
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  setup:
+    name: 🧰 Setup & Dependencies
+    runs-on: ubuntu-latest
+    outputs:
+      cache-key: ${{ steps.composer-cache.outputs.cache-primary-key }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          extensions: mbstring, intl, pdo_sqlite
+          coverage: none
+
+      - name: Copy .env.test.local
+        run: php -r "file_exists('.env.test.local') || copy('.env.test', '.env.test.local');"
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+
+      - name: Install Composer dependencies
+        if: steps.composer-cache.outputs.cache-hit != 'true'
+        run: |
+          composer install --no-ansi --no-interaction --no-progress --prefer-dist
+          php bin/console tailwind:build
+          php bin/console asset-map:compile
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: symfony-site
+          path: ./artefact
+
+  security:
+    name: 🔒 Security Audit
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+
+#      - name: Install PHP with extensions
+#        uses: shivammathur/setup-php@v2
+#        with:
+#          php-version: ${{ env.PHP_VERSION }}
+#          tools: composer:v2
+#          coverage: none
+
+      - name: Run Composer audit
+        run: composer audit --no-interaction --no-ansi
+
+  deploy:
+    name: 🚀 Deploy to Cpanel
+    runs-on: ubuntu-latest
+    needs: [security]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Download built site
+        uses: actions/download-artifact@v4
+        with:
+          name: symfony-site
+          path: artefact/
+      # FTP/SFTP deployment
+      - name: Deploy to Plesk via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.O2SWITCH_HOST }}
+          username: ${{ secrets.O2SWITCH_USERNAME }}
+          password: ${{ secrets.O2SWITCH_PASSWORD }}
+          local-dir: ./artefact # Adjust if needed
+          server-dir: /www/sf-vivre-ensemble/
+          exclude: |
+            **/.git*
+            **/.gitignore
+            **/*.md
