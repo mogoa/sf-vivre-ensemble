@@ -92,7 +92,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: symfony-site
-          path: /
+          path: ./artefact
       # FTP/SFTP deployment
       - name: Deploy to Plesk via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
