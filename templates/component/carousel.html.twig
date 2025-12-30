@@ -1,0 +1,142 @@
+{% trans_default_domain 'app' %}
+{#
+<div id="carousel-example" class="relative w-full">
+
+
+    <!-- Carousel wrapper -->
+    <div class="relative h-screen max-h-[70vh] overflow-hidden bg-black/30 z-10">
+        {% for image_file in image_files %}
+            <!-- Item 1 -->
+            <div id="carousel-item-{{ loop.index }}" class="absolute hidden inset-0 carousel-slide">
+                <img
+                    src="{{ asset(image_path ~ image_file)}}"
+                    class="h-full w-full object-cover"
+                    alt="..."
+                />
+            </div>
+        {% endfor %}
+    </div>
+
+
+    <!-- Slider indicators -->
+    <div class="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse">
+    {% for image_file in image_files %}
+        <button
+            id="carousel-indicator-{{ loop.index }}"
+            type="button"
+            class="h-3 w-3 rounded-base"
+            aria-current="true"
+            aria-label="Slide {{ loop.index }}"
+        ></button>
+
+    {% endfor %}
+    </div>
+    <!-- Slider controls -->
+
+
+
+    <button
+        id="data-carousel-prev"
+        type="button"
+        class="group absolute left-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
+    >
+        <span
+            class="inline-flex h-10 w-10 items-center justify-center rounded-base bg-white/30 group-hover:bg-white/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70"
+        >
+            <svg
+                class="h-4 w-4 text-white dark:text-gray-800"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+            >
+                <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 1 1 5l4 4"
+                />
+            </svg>
+            <span class="hidden">Previous</span>
+        </span>
+    </button>
+
+
+
+    <button
+        id="data-carousel-next"
+        type="button"
+        class="group absolute right-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
+    >
+        <span
+            class="inline-flex h-10 w-10 items-center justify-center rounded-base bg-white/30 group-hover:bg-white/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70"
+        >
+            <svg
+                class="h-4 w-4 text-white dark:text-gray-800"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+            >
+                <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 9 4-4-4-4"
+                />
+            </svg>
+            <span class="hidden">Next</span>
+        </span>
+    </button>
+</div> #}
+
+<div id="carousel-example" data-controller="carousel" class="relative w-full">
+    <!-- Wrapper Hero -->
+    <div class="relative h-screen max-h-[70vh] overflow-hidden">
+        {% for image_file in image_files %}
+            <div
+                data-carousel-target="item"
+                data-carousel-item
+                class="hidden carousel-slide"
+            >
+                <img
+                    src="{{ asset(image_path ~ image_file) }}"
+                    class="w-full h-full object-cover"
+                    alt="Slide {{ loop.index }}"
+                />
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Indicators -->
+    <div class="absolute bottom-6 left-1/2 z-30 flex -translate-x-1/2 space-x-3">
+        {% for image_file in image_files %}
+            <button
+                data-carousel-target="indicator"
+                type="button"
+                class="h-3 w-3 rounded-full bg-white/50 transition-all hover:bg-white/75"
+                aria-label="Slide {{ loop.index }}"
+            ></button>
+        {% endfor %}
+    </div>
+
+    <!-- Controls -->
+    <button
+        type="button"
+        data-action="click->carousel#prev"
+        class="absolute left-4 top-1/2 -translate-y-1/2 z-30 text-white text-5xl px-4 py-2 hover:bg-black/30 rounded transition-colors"
+    >
+        ‹
+    </button>
+
+    <button
+        type="button"
+        data-action="click->carousel#next"
+        class="absolute right-4 top-1/2 -translate-y-1/2 z-30 text-white text-5xl px-4 py-2 hover:bg-black/30 rounded transition-colors"
+    >
+        ›
+    </button>
+</div>
+

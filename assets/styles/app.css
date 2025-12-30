@@ -1,3 +1,77 @@
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+
+@plugin "flowbite/plugin";
+@source "../../node_modules/flowbite";
+
+
+@tailwind utilities;
+@tailwind/typography;
+@tailwind/flowbite;
+
+
 body {
-    background-color: skyblue;
+    background-color: rgb(224, 232, 235);
 }
+
+/* Carousel fade + blur transition when an item becomes active */
+/* Flowbite gère le 'hidden', on ajoute juste le fondu par-dessus */
+/* Les slides doivent rester en position absolute mais visibles pour les transitions */
+.carousel-slide {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Le slide actif (sans hidden) devient visible */
+.carousel-slide:not(.hidden) {
+    opacity: 1;
+    z-index: 20;
+}
+
+/* Animation Ken Burns */
+@keyframes kenBurnsZoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.15);
+    }
+}
+
+.carousel-slide.ken-burns img {
+    animation: kenBurnsZoom 5s ease-out forwards;
+}
+
+/* Reset */
+.carousel-slide:not(.ken-burns) img {
+    transform: scale(1);
+    animation: none;
+}
+
+
+
+/** ********* NAVBAR CUSTOM STYLES ********** **/
+/* Navbar spécifique */
+.menu-link.active span,
+.mobile-link.active {
+  @apply bg-gradient-to-r from-[#4ECDC4] to-[#26A69A];
+}
+
+/* Styles spécifiques navbar */
+.menu-link:hover {
+  color: #26A69A !important;
+}
+
+.mobile-link:hover {
+  color: #26A69A !important;
+}
+
+/* Active page */
+.menu-link.active,
+.mobile-link.active {
+  color: #26A69A !important;
+}
+/** ********* END NAVBAR CUSTOM STYLES ********** **/

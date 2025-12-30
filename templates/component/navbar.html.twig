@@ -1,0 +1,86 @@
+<nav class="bg-white/95 backdrop-blur-md border-b border-[#4ECDC4]/20 shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="{{ path('home') }}" class="text-2xl font-black bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] bg-clip-text text-transparent">
+          {{ page_title}}
+        </a>
+      </div>
+
+      <!-- Menu Desktop -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="{{ path('home') }}" class="menu-link px-3 py-2 text-[#4ECDC4] font-medium uppercase tracking-wide text-sm transition-all duration-300 relative group">
+          Accueil
+          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] group-hover:w-[80%] group-hover:left-0 transition-all duration-300"></span>
+        </a>
+
+        <a href="{{ path('programs') }}" class="menu-link px-3 py-2 text-[#4ECDC4] font-medium uppercase tracking-wide text-sm transition-all duration-300 relative group">
+          Le Programme
+          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] group-hover:w-[80%] group-hover:left-0 transition-all duration-300"></span>
+        </a>
+
+        <a href="{{ path('elections') }}" class="menu-link px-3 py-2 text-[#4ECDC4] font-medium uppercase tracking-wide text-sm transition-all duration-300 relative group">
+          Élections
+          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] group-hover:w-[80%] group-hover:left-0 transition-all duration-300"></span>
+        </a>
+
+        <a href="{{ path('teams') }}" class="menu-link px-3 py-2 text-[#4ECDC4] font-medium uppercase tracking-wide text-sm transition-all duration-300 relative group">
+          Équipe
+          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] group-hover:w-[80%] group-hover:left-0 transition-all duration-300"></span>
+        </a>
+
+        <a href="{{ path('contact') }}" class="menu-link px-3 py-2 text-[#4ECDC4] font-medium uppercase tracking-wide text-sm transition-all duration-300 relative group">
+          Contact
+          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] group-hover:w-[80%] group-hover:left-0 transition-all duration-300"></span>
+        </a>
+      </div>
+
+      <!-- Bouton Mobile -->
+      <div class="md:hidden flex items-center">
+        <button id="mobile-menu-button" class="text-[#4ECDC4] hover:text-[#26A69A] p-1 rounded-md focus:outline-none">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white/95 border-t border-[#4ECDC4]/20 backdrop-blur-md">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      <a href="{{ path('home') }}" class="mobile-link block px-3 py-2 text-[#4ECDC4] font-medium rounded-md hover:bg-[#4ECDC4]/10 transition-colors">
+        Accueil
+      </a>
+      <a href="{{ path('programs') }}" class="mobile-link block px-3 py-2 text-[#4ECDC4] font-medium rounded-md hover:bg-[#4ECDC4]/10 transition-colors">
+        Le Programme
+      </a>
+      <a href="{{ path('elections') }}" class="mobile-link block px-3 py-2 text-[#4ECDC4] font-medium rounded-md hover:bg-[#4ECDC4]/10 transition-colors">
+        Élections
+      </a>
+      <a href="{{ path('teams') }}" class="mobile-link block px-3 py-2 text-[#4ECDC4] font-medium rounded-md hover:bg-[#4ECDC4]/10 transition-colors">
+
+      </a>
+      <a href="{{ path('contact') }}" class="mobile-link block px-3 py-2 text-[#4ECDC4] font-medium rounded-md hover:bg-[#4ECDC4]/10 transition-colors">
+        Contact
+      </a>
+    </div>
+  </div>
+</nav>
+
+<style>
+
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileButton.addEventListener('click', function() {
+    mobileMenu.classList.toggle('hidden');
+  });
+});
+</script>

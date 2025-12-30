@@ -25,4 +25,35 @@ return [
     '@hotwired/turbo' => [
         'version' => '7.3.0',
     ],
+    'alpinejs' => [
+        'version' => '3.15.3',
+    ],
+    '@alpinejs/collapse' => [
+        'version' => '3.15.3',
+    ],
+    'tailwindcss/plugin' => [
+        'version' => '3.4.13',
+    ],
+    'tailwindcss/defaultTheme' => [
+        'version' => '3.4.13',
+    ],
+    'tailwindcss/colors' => [
+        'version' => '3.4.13',
+    ],
+    'picocolors' => [
+        'version' => '1.1.0',
+    ],
+    '@popperjs/core' => [
+        'version' => '2.11.8',
+    ],
+    'flowbite' => [
+        'version' => '4.0.1',
+    ],
+    'flowbite-datepicker' => [
+        'version' => '2.0.0',
+    ],
+    'flowbite/dist/flowbite.min.css' => [
+        'version' => '4.0.1',
+        'type' => 'css',
+    ],
 ];

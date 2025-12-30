@@ -1,4 +1,6 @@
-
+.idea
+.vscode
+.github/copilot-instructions.md
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
@@ -9,12 +11,21 @@
 /vendor/
 ###< symfony/framework-bundle ###
 
+###> node_modules ###
+/node_modules/
+###< node_modules ###
+
+
+
 ###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
 /phpunit.xml
 /.phpunit.cache/
 ###< phpunit/phpunit ###
 
 ###> symfony/asset-mapper ###
 /public/assets/
+/public/images/
 /assets/vendor/
 ###< symfony/asset-mapper ###
