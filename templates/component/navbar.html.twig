@@ -3,14 +3,14 @@
     <div class="flex justify-between items-center h-16 gap-4">
 
       <!-- Logo -->
-      <div class="shrink-0 min-w-0 flex-1 md:flex-none">
-        <a href="{{ path('home') }}" class="text-lg sm:text-2xl font-black bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] bg-clip-text text-transparent break-words leading-tight">
+      <div class="shrink-0 min-w-0 flex-1 lg:flex-none">
+        <a href="{{ path('home') }}" class="text-lg sm:text-xl lg:text-2xl font-black bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] bg-clip-text text-transparent break-words leading-tight">
           {{ page_title}}
         </a>
       </div>
 
       <!-- Menu Desktop -->
-      <div class="hidden md:flex items-center space-x-8">
+      <div class="hidden lg:flex items-center space-x-8">
         <a href="{{ path('home') }}" class="menu-link px-3 py-2 text-[#4ECDC4] font-medium uppercase tracking-wide text-sm transition-all duration-300 relative group">
           Accueil
           <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] group-hover:w-[80%] group-hover:left-0 transition-all duration-300"></span>
@@ -38,7 +38,7 @@
       </div>
 
       <!-- Bouton Mobile -->
-      <div class="md:hidden flex items-center">
+      <div class="lg:hidden flex items-center shrink-0">
         <button data-navbar-target="menuButton" class="text-[#4ECDC4] hover:text-[#26A69A] p-1 rounded-md focus:outline-none">
           <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -49,7 +49,7 @@
   </div>
 
   <!-- Mobile Menu -->
-  <div data-navbar-target="mobileMenu" class="md:hidden hidden bg-white/95 border-t border-[#4ECDC4]/20 backdrop-blur-md">
+  <div data-navbar-target="mobileMenu" class="lg:hidden hidden bg-white/95 border-t border-[#4ECDC4]/20 backdrop-blur-md">
     <div class="px-2 pt-2 pb-3 space-y-1">
       <a href="{{ path('home') }}" class="mobile-link block px-3 py-2 text-[#4ECDC4] font-medium rounded-md hover:bg-[#4ECDC4]/10 transition-colors">
         Accueil
