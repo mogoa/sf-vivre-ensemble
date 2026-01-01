@@ -92,7 +92,7 @@
     </button>
 </div> #}
 
-<div id="carousel-example" class="relative w-full" data-carousel="slide">
+<div id="carousel-example" class="relative w-full" data-controller="carousel" data-carousel="slide">
 
     <!-- Forme de vague SVG en haut du carousel -->
     <div class="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-20" aria-hidden="true">
@@ -108,7 +108,8 @@
         {% for image_file in image_files %}
             <div
                 data-carousel-item
-                class="hidden duration-2000 ease-in-out"
+                {# class="hidden duration-2000 ease-in-out" #}
+                class="hidden"
             >
                 <img
                     src="{{ asset(image_path ~ image_file) }}"

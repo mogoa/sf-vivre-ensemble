@@ -1,102 +1,75 @@
- import { Controller } from '@hotwired/stimulus';
+import { Controller } from '@hotwired/stimulus';
 
 export default class extends Controller {
-    connect() {
-        this.element.textContent = 'Hello Stimulus! I\'m in carousel_controller.js';
-    }
-}
-
-/*import { Carousel } from 'flowbite';
-
-export default class extends Controller {
-  static targets = ['item', 'indicator'];
-
   connect() {
     if (this.initialized) return;
     this.initialized = true;
 
-    this.activeIndex = 0;
-    this.isFirstSlide = true;
+    this.items = Array.from(this.element.querySelectorAll('[data-carousel-item]'));
+    if (!this.items.length) return;
 
-    // Force tous les slides à être visibles mais transparents
-    this.itemTargets.forEach((item, idx) => {
-      item.style.display = 'block';
-      if (idx !== 0) {
+    // find current visible slide or default to 0
+    this.current = this.items.findIndex((it) => !it.classList.contains('hidden'));
+    if (this.current === -1) this.current = 0;
+
+    // ensure visibility state: show current, hide others
+    this.items.forEach((item, idx) => {
+      if (idx === this.current) {
+        item.classList.remove('hidden');
+      } else {
         item.classList.add('hidden');
       }
     });
 
-    const items = this.itemTargets.map((el, idx) => ({
-      position: idx,
-      el,
-    }));
+    // apply ken-burns to the current slide so it slowly zooms
+    const currentItem = this.items[this.current];
+    if (currentItem) {
+      // small delay to ensure CSS transitions/animation start correctly
+      setTimeout(() => currentItem.classList.add('ken-burns'), 150);
+    }
 
-    const indicators = this.indicatorTargets.map((el, idx) => ({
-      position: idx,
-      el,
-    }));
+    this.prevHandler = () => this.prev();
+    this.nextHandler = () => this.next();
 
-    this.carousel = new Carousel(
-      this.element,
-      items,
-      {
-        defaultPosition: 0,
-        interval: 6000,
-        indicators: {
-          activeClasses: 'bg-white',
-          inactiveClasses: 'bg-white/50 hover:bg-white/75',
-          items: indicators,
-        },
-        onChange: (newIndex) => this.onSlideChange(newIndex),
-      },
-      { override: true }
-    );
+    const prev = this.element.querySelector('[data-carousel-prev]');
+    const next = this.element.querySelector('[data-carousel-next]');
+    if (prev) prev.addEventListener('click', this.prevHandler);
+    if (next) next.addEventListener('click', this.nextHandler);
 
-    this.carousel.cycle();
+    this.interval = setInterval(() => this.next(), 6000);
   }
 
   disconnect() {
     this.initialized = false;
-    if (this.carousel) {
-      this.carousel.pause();
-    }
-  }
+    if (this.interval) clearInterval(this.interval);
 
-  onSlideChange(newIndex) {
-    if (!this.itemTargets || newIndex >= this.itemTargets.length || newIndex < 0) {
-      return;
-    }
-
-    // Garde tous les slides en display block pour les transitions
-    this.itemTargets.forEach((item) => {
-      item.style.display = 'block';
-      item.classList.remove('ken-burns');
-    });
-
-    const currentSlide = this.itemTargets[newIndex];
-
-    // Ajoute Ken Burns sauf pour la première image au chargement
-    if (currentSlide && !(this.isFirstSlide && newIndex === 0)) {
-      setTimeout(() => {
-        if (currentSlide && !currentSlide.classList.contains('hidden')) {
-          currentSlide.classList.add('ken-burns');
-        }
-      }, 200);
-    }
-
-    if (this.isFirstSlide && newIndex !== 0) {
-      this.isFirstSlide = false;
-    }
-
-    this.activeIndex = newIndex;
-  }
-
-  prev() {
-    this.carousel?.prev();
+    const prev = this.element.querySelector('[data-carousel-prev]');
+    const next = this.element.querySelector('[data-carousel-next]');
+    if (prev) prev.removeEventListener('click', this.prevHandler);
+    if (next) next.removeEventListener('click', this.nextHandler);
   }
 
   next() {
-    this.carousel?.next();
+    const nextIndex = (this.current + 1) % this.items.length;
+    this.show(nextIndex);
+  }
+
+  prev() {
+    const prevIndex = (this.current - 1 + this.items.length) % this.items.length;
+    this.show(prevIndex);
+  }
+
+  show(index) {
+    if (index === this.current) return;
+    const old = this.items[this.current];
+    const nw = this.items[index];
+    if (old) old.classList.add('hidden');
+    if (old) old.classList.remove('ken-burns');
+    if (nw) {
+      nw.classList.remove('hidden');
+      // allow repaint before starting ken-burns animation
+      setTimeout(() => nw.classList.add('ken-burns'), 150);
+    }
+    this.current = index;
   }
 }
- */
