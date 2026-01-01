@@ -95,7 +95,10 @@ jobs:
           path: vendor
           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
 
-      - name: Install dependencies
+      - name: Install npm dependencies
+        run: npm install
+
+      - name: Install composer dependencies
         run: composer install --no-dev --optimize-autoloader --no-interaction
 
       - name: Build Tailwind CSS (production)
