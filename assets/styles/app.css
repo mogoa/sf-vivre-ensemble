@@ -88,3 +88,35 @@ body {
   transform: scale(1.05);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
+
+
+/** ********** page contact mail ********** **/
+
+/* Honeypot caché */
+.hidden-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+/* Erreurs de formulaire */
+.form-errors ul {
+    @apply list-none p-0 m-0;
+}
+
+.form-errors li {
+    @apply text-red-600 text-sm mt-1 flex items-center gap-1;
+}
+
+.form-errors li:before {
+    content: "⚠";
+    @apply text-red-500;
+}
+
+/* Champs invalides */
+form input.is-invalid,
+form textarea.is-invalid {
+    @apply border-red-500 focus:ring-red-500;
+}
