@@ -52,14 +52,6 @@ jobs:
         run: |
           npm install
           composer install --no-ansi --no-interaction --no-progress --prefer-dist
-          php bin/console tailwind:build
-          php bin/console asset-map:compile
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: symfony-site
-          path: .
 
   security:
     name: 🔒 Security Audit
@@ -82,17 +74,39 @@ jobs:
       - name: Run Composer audit
         run: composer audit --no-interaction --no-ansi
 
-  deploy:
-    name: 🚀 Deploy to Cpanel
+  build-and-deploy:
+    name: 🏗️ Build Assets
     runs-on: ubuntu-latest
     needs: [security]
     if: github.ref == 'refs/heads/main'
     steps:
-      - name: Download built site
-        uses: actions/download-artifact@v4
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
         with:
-          name: symfony-site
-          path: ./artefact/
+          php-version: ${{ env.PHP_VERSION }}
+          extensions: mbstring, intl
+          coverage: none
+
+      - name: Cache Composer packages
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+
+      - name: Install dependencies
+        run: composer install --no-dev --optimize-autoloader --no-interaction
+
+      - name: Build Tailwind CSS (production)
+        run: php bin/console tailwind:build --minify
+
+      - name: Install Importmap
+        run: php bin/console importmap:install
+
+      - name: Compile AssetMapper
+        run: php bin/console asset-map:compile
+
       # FTP/SFTP deployment
       - name: Deploy to Plesk via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -103,6 +117,6 @@ jobs:
           local-dir: ./artefact/ # Adjust if needed
           server-dir: /www/sf-vivre-ensemble/
           exclude: |
+            **/tests/*
             **/.git*
-            **/.gitignore
             **/*.md
