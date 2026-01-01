@@ -26,7 +26,6 @@ export default class extends Controller {
   toggleMenu() {
     if (this.mobileMenu) {
       this.mobileMenu.classList.toggle('hidden');
-      console.log('Menu hidden state:', this.mobileMenu.classList.contains('hidden'));
     }
   }
 }
