@@ -28,9 +28,28 @@ final class HomeController extends AbstractController
             $files[] = $file->getFilename();
         }
 
+        $programs = [
+            [
+                'name' => 'Attractivité',
+                'content' => 'Apporter une nouvelle dynamique à notre ville en valorisant son patrimoine et en soutenant les initiatives locales.',
+                'icon' => 'fa-city'
+            ],
+            [
+                'name' => 'Logement',
+                'content' => 'Engagé à améliorer l\'accès au logement pour tous les habitants de La Roche-Clermault.',
+                'icon' => 'fa-house'
+            ],
+            [
+                'name' => 'La jeunesse',
+                'content' => 'promouvoir des activités et des espaces dédiés aux jeunes pour favoriser leur épanouissement.',
+                'icon' => 'fa-child'
+            ],
+        ];
+
         return $this->render('home/index.html.twig', [
             'page_title' => 'Vivre ensemble à La Roche-Clermault',
-            'image_files' => $files
+            'image_files' => $files,
+            'programs' => $programs,
         ]);
     }
 

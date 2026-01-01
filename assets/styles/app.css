@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "flowbite/src/themes/default";
 
+
 @plugin "flowbite/plugin";
 @source "../../node_modules/flowbite";
 
@@ -74,3 +75,16 @@ body {
   color: #26A69A !important;
 }
 /** ********* END NAVBAR CUSTOM STYLES ********** **/
+
+
+
+.btn-primary {
+  @apply inline-flex items-center gap-3 px-6 py-3 text-white font-semibold rounded-lg shadow-md transition-all duration-300;
+  background: linear-gradient(to right, #4ECDC4, #26A69A);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
