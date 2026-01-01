@@ -117,7 +117,7 @@ jobs:
           server: ${{ secrets.O2SWITCH_HOST }}
           username: ${{ secrets.O2SWITCH_USERNAME }}
           password: ${{ secrets.O2SWITCH_PASSWORD }}
-          local-dir: ./artefact/ # Adjust if needed
+          local-dir: ./ # Adjust if needed
           server-dir: /www/sf-vivre-ensemble/
           exclude: |
             **/tests/*
