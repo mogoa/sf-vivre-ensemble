@@ -1,5 +1,12 @@
-import { Controller } from '@hotwired/stimulus';
-import { Carousel } from 'flowbite';
+ import { Controller } from '@hotwired/stimulus';
+
+export default class extends Controller {
+    connect() {
+        this.element.textContent = 'Hello Stimulus! I\'m in carousel_controller.js';
+    }
+}
+
+/*import { Carousel } from 'flowbite';
 
 export default class extends Controller {
   static targets = ['item', 'indicator'];
@@ -92,3 +99,4 @@ export default class extends Controller {
     this.carousel?.next();
   }
 }
+ */

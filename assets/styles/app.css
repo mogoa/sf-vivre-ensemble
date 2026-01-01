@@ -4,14 +4,13 @@
 @plugin "flowbite/plugin";
 @source "../../node_modules/flowbite";
 
-
 @tailwind utilities;
 @tailwind/typography;
 @tailwind/flowbite;
 
 
 body {
-    background-color: rgb(224, 232, 235);
+    background-color: #f3f4f6;
 }
 
 /* Carousel fade + blur transition when an item becomes active */
