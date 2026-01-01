@@ -1,9 +1,9 @@
 @import "tailwindcss";
 @import "flowbite/src/themes/default";
 
+
 @plugin "flowbite/plugin";
 @source "../../node_modules/flowbite";
-
 
 @tailwind utilities;
 @tailwind/typography;
@@ -11,42 +11,41 @@
 
 
 body {
-    background-color: rgb(224, 232, 235);
+    background-color: #f3f4f6;
 }
 
 /* Carousel fade + blur transition when an item becomes active */
 /* Flowbite gère le 'hidden', on ajoute juste le fondu par-dessus */
 /* Les slides doivent rester en position absolute mais visibles pour les transitions */
-.carousel-slide {
+.carousel-slide,
+[data-carousel-item] {
     position: absolute;
     inset: 0;
     z-index: 10;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transform-origin: center center;
+    transition: opacity 1s ease-in-out, transform 6s ease-in-out;
 }
 
-/* Le slide actif (sans hidden) devient visible */
-.carousel-slide:not(.hidden) {
+/* Visible slide */
+[data-carousel-item]:not(.hidden) {
     opacity: 1;
     z-index: 20;
 }
 
-/* Animation Ken Burns */
+/* Ken Burns animation (slow zoom) */
 @keyframes kenBurnsZoom {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.15);
-    }
+    0% { transform: scale(1); }
+    100% { transform: scale(1.12); }
 }
 
-.carousel-slide.ken-burns img {
-    animation: kenBurnsZoom 5s ease-out forwards;
+/* Apply ken-burns to the image inside the active slide */
+[data-carousel-item].ken-burns img {
+    animation: kenBurnsZoom 6s ease-in-out forwards;
 }
 
-/* Reset */
-.carousel-slide:not(.ken-burns) img {
+/* Reset when not ken-burns */
+[data-carousel-item]:not(.ken-burns) img {
     transform: scale(1);
     animation: none;
 }
@@ -75,3 +74,48 @@ body {
   color: #26A69A !important;
 }
 /** ********* END NAVBAR CUSTOM STYLES ********** **/
+
+
+
+.btn-primary {
+  @apply inline-flex items-center gap-3 px-6 py-3 text-white font-semibold rounded-lg shadow-md transition-all duration-300;
+  background: linear-gradient(to right, #4ECDC4, #26A69A);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+
+/** ********** page contact mail ********** **/
+
+/* Honeypot caché */
+.hidden-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+/* Erreurs de formulaire */
+.form-errors ul {
+    @apply list-none p-0 m-0;
+}
+
+.form-errors li {
+    @apply text-red-600 text-sm mt-1 flex items-center gap-1;
+}
+
+.form-errors li:before {
+    content: "⚠";
+    @apply text-red-500;
+}
+
+/* Champs invalides */
+form input.is-invalid,
+form textarea.is-invalid {
+    @apply border-red-500 focus:ring-red-500;
+}
