@@ -122,4 +122,5 @@ jobs:
           exclude: |
             **/tests/*
             **/.git/**
+            **/node_modules/**
             **/*.md
