@@ -121,5 +121,5 @@ jobs:
           server-dir: /www/sf-vivre-ensemble/
           exclude: |
             **/tests/*
-            **/.git*
+            **/.git/**
             **/*.md
