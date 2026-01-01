@@ -91,33 +91,7 @@ jobs:
 
       - name: Cache Composer packages
         uses: actions/cache@v3
-      - uses: actions/checkout@v4
-
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ env.PHP_VERSION }}
-          extensions: mbstring, intl
-          coverage: none
-
-      - name: Cache Composer packages
-        uses: actions/cache@v3
-        with:
-          path: vendor
-          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-
-      - name: Install dependencies
-        run: composer install --no-dev --optimize-autoloader --no-interaction
-
-      - name: Build Tailwind CSS (production)
-        run: php bin/console tailwind:build --minify
-
-      - name: Install Importmap
-        run: php bin/console importmap:install
-
-      - name: Compile AssetMapper
-        run: php bin/console asset-map:compile
-
           path: vendor
           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
 
@@ -143,7 +117,6 @@ jobs:
           local-dir: ./artefact/ # Adjust if needed
           server-dir: /www/sf-vivre-ensemble/
           exclude: |
-            **/tests/*
             **/tests/*
             **/.git*
             **/*.md
