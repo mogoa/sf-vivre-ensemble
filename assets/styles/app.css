@@ -62,7 +62,7 @@ body {
 /* Navbar spécifique */
 .menu-link.active span,
 .mobile-link.active {
-  @apply bg-gradient-to-r from-[#4ECDC4] to-[#26A69A];
+  @apply bg-gradient-to-r from-[#4ecdc4] to-[#26A69A];
 }
 
 /* Styles spécifiques navbar */

@@ -4,13 +4,9 @@
 
 <section class="relative">
   <!-- Carousel (background hero) -->
-  {% include 'component/carousel.html.twig' with {'image_files': image_files, 'image_path': 'images/photo_équipe/'} %}
+  {% include 'component/carousel.html.twig' with {'image_files': image_files } %}
 
   <!-- Page title overlayed in front of the carousel -->
-  <div class="absolute inset-0 z-50 flex items-end justify-center pointer-events-none pb-12">
-    <h1 class="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-lg">
-      Vivre Ensemble
-    </h1>
-  </div>
+
 </section>
 {% endblock %}
