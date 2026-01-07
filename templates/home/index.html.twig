@@ -7,11 +7,13 @@
   {% include 'component/carousel.html.twig' with {'image_files': image_files, 'image_path': 'images/panorama/'} %}
 
   <!-- Page title overlayed in front of the carousel -->
-  <div class="absolute inset-0 z-50 flex items-center justify-center pointer-events-none">
-    <h1 class="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-lg">
-      Vivre Ensemble à La Roche-Clermault
-    </h1>
-  </div>
+    <div class="absolute inset-x-0 bottom-20 z-50 flex items-center justify-center pointer-events-none">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-8 pt-6">
+                <h1 class="text-4xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-[#4ECDC4] drop-shadow-[0_3px_6px_rgba(0,0,0,0.8)] leading-tight text-center" style="text-shadow: 0 3px 6px rgba(0, 0, 0, 0.9);">
+                    Vivre Ensemble à La Roche-Clermault
+                </h1>
+        </div>
+    </div>
 </section>
 
 <section class="relative py-8">
@@ -34,7 +36,7 @@
       <!-- Section image -->
       <div class="w-full lg:w-1/2 flex justify-center items-center p-8 lg:p-16">
           <img
-              src="{{ asset('images/photo_équipe/IMG_3687.JPEG') }}"
+              src="{{ asset('images/photo_equipe/Guillaume/img_3687.jpeg') }}"
               alt="Guillaume LAMBERT - Professional Photo"
               class="w-full max-w-md lg:max-w-lg rounded-lg shadow-2xl transform lg:-translate-y-16 object-cover"
               loading="lazy"

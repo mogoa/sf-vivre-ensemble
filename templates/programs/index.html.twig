@@ -4,4 +4,40 @@
 
 {% block body %}
 
+<!-- Grille de programme dynamique -->
+<div class="mx-auto max-w-8xl px-6 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-1 gap-8">
+        {% for program in programs %}
+            <div class="program-card bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden border-l-4 border-[#4ECDC4]">
+                <div class=" grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-6 lg:h-full">
+
+                    <!-- Left: Header with fixed width (180px) and green background on hover -->
+                    <div class="program-header flex flex-col items-center justify-center p-6 gap-4">
+                        <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center shrink-0">
+                            <i class="fa-solid {{ program.icon }} text-3xl"></i>
+                        </div>
+                        <h3 class="font-bold text-center text-lg leading-tight">
+                            {{ program.name }}
+                        </h3>
+                    </div>
+
+                    <!-- Right: Content section -->
+                    <div class="p-6 overflow-y-auto">
+                        <div class="text-gray-700 text-lg leading-relaxed">
+                            {% for content in program.contents %}
+                                {{ content|raw }}
+                                {% if not loop.last %}
+                                    <br><br>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
 {% endblock %}

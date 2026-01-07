@@ -62,7 +62,7 @@ body {
 /* Navbar spécifique */
 .menu-link.active span,
 .mobile-link.active {
-  @apply bg-gradient-to-r from-[#4ECDC4] to-[#26A69A];
+  @apply bg-linear-to-r from-[#4ecdc4] to-[#26A69A];
 }
 
 /* Styles spécifiques navbar */
@@ -124,4 +124,133 @@ body {
 form input.is-invalid,
 form textarea.is-invalid {
     @apply border-red-500 focus:ring-red-500;
+}
+
+
+/** ========== PROGRAM PAGE CUSTOM STYLES ========== **/
+
+/* Program card header with hover gradient effect */
+/* .program-header {
+    background-color: #f3f4f6;
+    transition: background-color 1.3s ease, background-image 0.3s ease;
+    color: #26A69A;
+}
+
+.program-header:hover {
+    background: linear-gradient(135deg, #4ECDC4, #26A69A);
+    color: white;
+    transition: color 1.0s ease;
+}
+
+.program-header:hover i {
+    color: white;
+}
+
+.program-header i {
+    color: #26A69A;
+    transition: color 1.0s ease;
+} */
+
+
+
+/* Program card header with smooth gradient transition */
+.program-header {
+    position: relative;
+    background-color: #f3f4f6;
+    color: #26A69A;
+    overflow: hidden;
+    transition: color 0.5s ease;
+}
+
+/* Gradient overlay caché par défaut */
+.program-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #4ECDC4, #26A69A);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: 0;
+}
+
+/* Sur mobile (< 1024px), gradient toujours visible + texte blanc */
+@media (max-width: 1023px) {
+    .program-header::before {
+        opacity: 1;
+    }
+
+    .program-header {
+        color: white;
+    }
+
+    .program-header i {
+        color: white;
+    }
+}
+
+/* Sur desktop (≥ 1024px), effet hover */
+@media (min-width: 1024px) {
+    .program-header:hover::before {
+        opacity: 1;
+    }
+
+    .program-header:hover {
+        color: white;
+    }
+
+    .program-header:hover i {
+        color: white;
+    }
+}
+
+/* S'assurer que le contenu reste au-dessus du pseudo-élément */
+.program-header > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Icône avec transition */
+.program-header i {
+    color: #26A69A;
+    transition: color 0.5s ease;
+}
+
+.program-header:hover i {
+    color: white;
+}
+
+
+
+
+/* CSS variables for maintenance page */
+:root {
+    --primary-light: #4ECDC4;
+    --primary: #26A69A;
+}
+
+
+/* Gradient text effect (requires background-clip, not in Tailwind) */
+.site-name {
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Main title responsive font size (clamp, not in Tailwind) */
+.program-title {
+    font-size: clamp(1.6rem, 2.8vw, 2rem);
+    font-weight: 800;
+    color: #ecfdf5;
+    letter-spacing: 0.04em;
+}
+
+/* Badge spinner animation */
+.program-badge span {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: #bbf7d0;
+    box-shadow: 0 0 0 6px rgba(187, 247, 208, 0.35);
 }

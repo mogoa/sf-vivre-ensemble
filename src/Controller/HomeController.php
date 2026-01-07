@@ -25,8 +25,16 @@ final class HomeController extends AbstractController
         $files = [];
 
         foreach ($finder as $file) {
-            $files[] = $file->getFilename();
+            $folderName = $file->getRelativePath(); // Récupère le nom du dossier
+
+            $files[] = [
+                'rootPath'   => 'images/panorama',
+                'folderName' => $folderName,
+                'filename'   => $file->getFilename(),
+                'realname'   => null,
+            ];
         }
+        //dd($files);
 
         $programs = [
             [
