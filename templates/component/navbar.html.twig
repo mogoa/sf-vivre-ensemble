@@ -1,39 +1,39 @@
 <nav class="bg-white/95 backdrop-blur-md border-b border-[#4ECDC4]/20 shadow-sm sticky top-0 z-50" data-controller="navbar">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-16 gap-4">
+    <div class="flex justify-between items-center h-32 gap-4 z-60">
 
       <!-- Logo -->
       <div class="shrink-0 min-w-0 flex-1 lg:flex-none">
-        <a href="{{ path('home') }}" class="text-lg sm:text-xl lg:text-2xl font-black bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] bg-clip-text text-transparent break-words leading-tight">
+        <a href="{{ path('home') }}" class="text-lg sm:text-xl lg:text-3xl md:text-2xl font-black bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] bg-clip-text text-transparent break-words leading-tight">
           {{ page_title}}
         </a>
       </div>
 
       <!-- Menu Desktop -->
       <div class="hidden lg:flex items-center space-x-8">
-        <a href="{{ path('home') }}" class="menu-link px-3 py-2 text-[#4ECDC4] font-medium uppercase tracking-wide text-sm transition-all duration-300 relative group">
+        <a href="{{ path('home') }}" class="menu-link py-2 {% if app.request.attributes.get('_route') == 'home' %}active text-white{% else %}text-[#4ECDC4]{% endif %} font-medium uppercase tracking-wide text-lg transition-all duration-300 relative group">
           Accueil
-          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] group-hover:w-[80%] group-hover:left-0 transition-all duration-300"></span>
+          <span class="absolute bottom-0  {% if app.request.attributes.get('_route') == 'home' %}w-full left-0{% else %}w-0{% endif %} h-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] group-hover:w-[100%] group-hover:left-0 transition-all duration-300"></span>
         </a>
 
-        <a href="{{ path('teams') }}" class="menu-link px-3 py-2 text-[#4ECDC4] font-medium uppercase tracking-wide text-sm transition-all duration-300 relative group">
+        <a href="{{ path('teams') }}" class="menu-link py-2 {% if app.request.attributes.get('_route') == 'teams' %}active text-white{% else %}text-[#4ECDC4]{% endif %} font-medium uppercase tracking-wide text-lg transition-all duration-300 relative group">
           Équipe
-          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] group-hover:w-[80%] group-hover:left-0 transition-all duration-300"></span>
+          <span class="absolute bottom-0  {% if app.request.attributes.get('_route') == 'teams' %}w-full left-0{% else %}w-0{% endif %} h-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] group-hover:w-[100%] group-hover:left-0 transition-all duration-300"></span>
         </a>
 
-        <a href="{{ path('programs') }}" class="menu-link px-3 py-2 text-[#4ECDC4] font-medium uppercase tracking-wide text-sm transition-all duration-300 relative group">
+        <a href="{{ path('programs') }}" class="menu-link py-2 {% if app.request.attributes.get('_route') == 'programs' %}active text-white{% else %}text-[#4ECDC4]{% endif %} font-medium uppercase tracking-wide text-lg transition-all duration-300 relative group">
           Le Programme
-          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] group-hover:w-[80%] group-hover:left-0 transition-all duration-300"></span>
+          <span class="absolute bottom-0  {% if app.request.attributes.get('_route') == 'programs' %}w-full left-0{% else %}w-0{% endif %} h-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] group-hover:w-[100%] group-hover:left-0 transition-all duration-300"></span>
         </a>
 
-        <a href="{{ path('elections') }}" class="menu-link px-3 py-2 text-[#4ECDC4] font-medium uppercase tracking-wide text-sm transition-all duration-300 relative group">
+        <a href="{{ path('elections') }}" class="menu-link py-2 {% if app.request.attributes.get('_route') == 'elections' %}active text-white{% else %}text-[#4ECDC4]{% endif %} font-medium uppercase tracking-wide text-lg transition-all duration-300 relative group">
           Élections
-          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] group-hover:w-[80%] group-hover:left-0 transition-all duration-300"></span>
+          <span class="absolute bottom-0 {% if app.request.attributes.get('_route') == 'elections' %}w-full left-0{% else %}w-0{% endif %} h-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] group-hover:w-[100%] group-hover:left-0 transition-all duration-300"></span>
         </a>
 
-        <a href="{{ path('contact') }}" class="menu-link px-3 py-2 text-[#4ECDC4] font-medium uppercase tracking-wide text-sm transition-all duration-300 relative group">
+        <a href="{{ path('contact') }}" class="menu-link py-2 {% if app.request.attributes.get('_route') == 'contact' %}active text-white{% else %}text-[#4ECDC4]{% endif %} font-medium uppercase tracking-wide text-lg transition-all duration-300 relative group">
           Contact
-          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] group-hover:w-[80%] group-hover:left-0 transition-all duration-300"></span>
+          <span class="absolute bottom-0  {% if app.request.attributes.get('_route') == 'contact' %}w-full left-0{% else %}w-0{% endif %} h-0.5 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] group-hover:w-[100%] group-hover:left-0 transition-all duration-300"></span>
         </a>
       </div>
 
@@ -51,19 +51,19 @@
   <!-- Mobile Menu -->
   <div data-navbar-target="mobileMenu" class="lg:hidden hidden bg-white/95 border-t border-[#4ECDC4]/20 backdrop-blur-md">
     <div class="px-2 pt-2 pb-3 space-y-1">
-      <a href="{{ path('home') }}" class="mobile-link block px-3 py-2 text-[#4ECDC4] font-medium rounded-md hover:bg-[#4ECDC4]/10 transition-colors">
+      <a href="{{ path('home') }}" class="mobile-link block py-2 {% if app.request.attributes.get('_route') == 'home' %}active bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] text-white{% else %}text-[#4ECDC4] hover:bg-[#4ECDC4]/10{% endif %} font-medium rounded-md transition-colors">
         Accueil
       </a>
-      <a href="{{ path('programs') }}" class="mobile-link block px-3 py-2 text-[#4ECDC4] font-medium rounded-md hover:bg-[#4ECDC4]/10 transition-colors">
+      <a href="{{ path('programs') }}" class="mobile-link block  py-2 {% if app.request.attributes.get('_route') == 'programs' %}active bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] text-white{% else %}text-[#4ECDC4] hover:bg-[#4ECDC4]/10{% endif %} font-medium rounded-md transition-colors">
         Le Programme
       </a>
-      <a href="{{ path('elections') }}" class="mobile-link block px-3 py-2 text-[#4ECDC4] font-medium rounded-md hover:bg-[#4ECDC4]/10 transition-colors">
+      <a href="{{ path('elections') }}" class="mobile-link block  py-2 {% if app.request.attributes.get('_route') == 'elections' %}active bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] text-white{% else %}text-[#4ECDC4] hover:bg-[#4ECDC4]/10{% endif %} font-medium rounded-md transition-colors">
         Élections
       </a>
-      <a href="{{ path('teams') }}" class="mobile-link block px-3 py-2 text-[#4ECDC4] font-medium rounded-md hover:bg-[#4ECDC4]/10 transition-colors">
+      <a href="{{ path('teams') }}" class="mobile-link block py-2 {% if app.request.attributes.get('_route') == 'teams' %}active bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] text-white{% else %}text-[#4ECDC4] hover:bg-[#4ECDC4]/10{% endif %} font-medium rounded-md transition-colors">
         Équipe
       </a>
-      <a href="{{ path('contact') }}" class="mobile-link block px-3 py-2 text-[#4ECDC4] font-medium rounded-md hover:bg-[#4ECDC4]/10 transition-colors">
+      <a href="{{ path('contact') }}" class="mobile-link block py-2 {% if app.request.attributes.get('_route') == 'contact' %}active bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] text-white{% else %}text-[#4ECDC4] hover:bg-[#4ECDC4]/10{% endif %} font-medium rounded-md transition-colors">
         Contact
       </a>
     </div>

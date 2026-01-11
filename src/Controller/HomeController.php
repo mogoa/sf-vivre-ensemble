@@ -61,4 +61,21 @@ final class HomeController extends AbstractController
         ]);
     }
 
+
+    #[Route('/legal_mentions', name: 'legal_mentions')]
+    public function legal(): Response
+    {
+        return $this->render('home/legal.html.twig', [
+            'page_title' => 'Mentions légales',
+        ]);
+    }
+
+    #[Route('/privacy_policy', name: 'privacy_policy')]
+    public function privacy_policy(): Response
+    {
+        return $this->render('home/privacy_policy.html.twig', [
+            'page_title' => 'Mentions légales',
+        ]);
+    }
+
 }

@@ -67,17 +67,17 @@ body {
 
 /* Styles spécifiques navbar */
 .menu-link:hover {
-  color: #26A69A !important;
+  color: #26A69A;
 }
 
 .mobile-link:hover {
-  color: #26A69A !important;
+  color: #26A69A;
 }
 
 /* Active page */
 .menu-link.active,
 .mobile-link.active {
-  color: #26A69A !important;
+  color: #26A69A;
 }
 /** ********* END NAVBAR CUSTOM STYLES ********** **/
 
