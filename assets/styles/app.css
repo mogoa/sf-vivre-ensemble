@@ -188,6 +188,28 @@ form textarea.is-invalid {
     }
 }
 
+/* Modal transitions */
+.modal-root .modal-overlay {
+    opacity: 0;
+    transition: opacity 240ms ease-in-out;
+}
+.modal-root .modal-media,
+.modal-root .modal-info {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+    transition: opacity 240ms ease, transform 240ms ease;
+}
+
+/* When modal is shown (Flowbite removes 'hidden') */
+.modal-root:not(.hidden) .modal-overlay {
+    opacity: 1;
+}
+.modal-root:not(.hidden) .modal-media,
+.modal-root:not(.hidden) .modal-info {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
 /* Sur desktop (≥ 1024px), effet hover */
 @media (min-width: 1024px) {
     .program-header:hover::before {
