@@ -8,15 +8,14 @@
 <div class="mx-auto max-w-8xl px-6 py-12">
     <div class="grid grid-cols-1 lg:grid-cols-1 gap-8">
         {% for program in programs %}
-            <div class="program-card bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden border-l-4 border-[#4ECDC4]">
-                <div class=" grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-6 lg:h-full">
-
+            <div class="program-card bg-white rounded-lg shadow-md hover:shadow-xl transition-all overflow-hidden border-l-4 border-[#4ECDC4] hover:bg-[#4ECDC4]/20">
+                <div class=" grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-6 lg:h-full ">
                     <!-- Left: Header with fixed width (180px) and green background on hover -->
-                    <div class="program-header flex flex-col items-center justify-center p-6 gap-4">
-                        <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center shrink-0">
-                            <i class="fa-solid {{ program.icon }} text-3xl"></i>
+                    <div class="flex flex-col items-center justify-center p-6 gap-2 ">
+                        <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center shrink-0 border-l-4 border-[#4ECDC4]">
+                            <i class="fa-solid {{ program.icon }} text-5xl text-[#26A69A]"></i>
                         </div>
-                        <h3 class="font-bold text-center text-lg leading-tight">
+                        <h3 class="font-semibold text-center text-lg leading-tight text-[#26A69A] ">
                             {{ program.name }}
                         </h3>
                     </div>
@@ -32,10 +31,17 @@
                             {% endfor %}
                         </div>
                     </div>
-
                 </div>
             </div>
         {% endfor %}
+
+        <!-- Conclusion Container -->
+        <div class="mt-8 p-8 bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] rounded-lg shadow-lg">
+            <p class="text-white text-lg font-semibold leading-relaxed text-center">
+                Nous nous engageons à être à votre écoute, à agir avec transparence et détermination pour faire de La Roche-Clermault un lieu où il fait bon vivre, aujourd'hui et demain. Ensemble, agissons pour notre village !
+            </p>
+        </div>
+
     </div>
 </div>
 

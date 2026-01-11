@@ -16,7 +16,6 @@ final class ProgramsController extends AbstractController
             [
                 "name" => "La jeunesse est au cœur de notre projet",
                 "contents" => [
-                    "Les jeunes sont l’avenir de notre commune",
                     "Nous créerons une <b>junior association</b> pour consulter les jeunes et les associer aux décisions qui les concernent.",
                     "L’école sera placée au centre de notre action."
                 ],
@@ -38,7 +37,7 @@ final class ProgramsController extends AbstractController
                     "Artisans, commerçants, agriculteurs, entrepreneurs : vous êtes essentiels à la vitalité de notre commune. Nous vous accompagnerons pour développer vos activités et attirer de nouveaux talents.",
                     "Nous engagerons une réflexion pour la création de nouveaux logements ou la réhabilitation de logements anciens"
                 ],
-                "icon" => "fa-child"
+                "icon" => "fa-briefcase"
             ],
             [
                 "name" => "Écologie et cadre de vie",
@@ -46,9 +45,10 @@ final class ProgramsController extends AbstractController
                     "Nous accompagnerons l’intercommunalité dans le développement des mobilités douces.",
                     "Nous poursuivrons l’approvisionnement de la cantine en produits locaux",
                     "Nous soutiendrons les deux cogestionnaires du <b>Marais de Taligny</b>, le Parc Naturel Loire Anjou Touraine et la communauté de communes Chinon Vienne et Loire, pour valoriser et promouvoir la réserve naturelle régionale",
-                    "<b>Entrée de bourg </b> : plantation d’arbres et opérations de nettoyage (Trash Spotter) pour embellir notre village."
+                    "Nous souhaitons retravailler les entrées de bourg pour embellir notre village.",
+                    "Nous organiserons des opérations de nettoyage de la commune."
                 ],
-                "icon" => "fa-child"
+                "icon" => "fa-seedling"
             ],
             [
                 "name" => "Culture",
@@ -56,14 +56,14 @@ final class ProgramsController extends AbstractController
                     "Nous souhaitons promouvoir la culture en organisant des concerts, et en poursuivant les spectacles estivaux (cinéma ou pièce de théâtre en plein air) en partenariat  avec la communauté de communes.",
                     "Nous voudrions travailler sur « la mémoire » de La Roche-Clermault, en recueillant les souvenirs de nos ainé.e.s.",
                 ],
-                "icon" => "fa-child"
+                "icon" => "fa-book-open"
             ],
                         [
                 "name" => "Communauté de communes",
                 "contents" => [
                     "Nous souhaitons défendre la position des communes rurales et faire entendre la voie de La Roche-Clermault au sein des instances de  la communauté de communes Chinon Vienne et Loire",
                 ],
-                "icon" => "fa-child"
+                "icon" => "fa-city"
             ],
         ];
 

@@ -65,6 +65,7 @@ final class TeamsController extends AbstractController
                 'description' => TeamMember::descriptionForPerson($folderName),
                 'age'        => TeamMember::ageForPerson($folderName),
                 'position'   => TeamMember::positionForPerson($folderName),
+                'sublabel'   => TeamMember::sublabelforPerson($folderName),
             ];
     }
 }
