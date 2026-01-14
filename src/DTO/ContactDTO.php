@@ -3,6 +3,7 @@
 namespace App\DTO;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 class ContactDTO
 {
@@ -10,7 +11,6 @@ class ContactDTO
     #[Assert\Length(min: 2, max: 100)]
     public ?string $name = null;
 
-    #[Assert\NotBlank(message: 'L\'email est obligatoire')]
     #[Assert\Email(message: 'L\'email n\'est pas valide')]
     public ?string $email = null;
 
@@ -22,4 +22,15 @@ class ContactDTO
 
     // Honeypot pour les bots (doit rester vide)
     public ?string $website = null;
+
+    #[Assert\Callback]
+    public function validateEmail(ExecutionContextInterface $context): void
+    {
+        // Email is required only if recontact is true
+        if ($this->recontact && (empty($this->email) || trim($this->email) === '')) {
+            $context->buildViolation('L\'email est obligatoire si vous souhaitez être recontacté')
+                ->atPath('email')
+                ->addViolation();
+        }
+    }
 }
