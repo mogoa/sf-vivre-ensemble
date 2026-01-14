@@ -19,15 +19,18 @@ class ContactType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom et Prénom',
                 'attr' => [
-                    'placeholder' => 'Jean Dupont',
+                    'placeholder' => 'Votre nom et votre prénom',
                     'class' => 'w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#26A69A] focus:border-transparent transition-all'
                 ]
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Adresse email',
+                'required' => false,
                 'attr' => [
                     'placeholder' => 'email',
-                    'class' => 'w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#26A69A] focus:border-transparent transition-all'
+                    'class' => 'w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#26A69A] focus:border-transparent transition-all',
+                    'data-contact-form-target' => 'emailField',
+                    'hidden' => 'hidden'
                 ]
             ])
             ->add('message', TextareaType::class, [
@@ -43,7 +46,9 @@ class ContactType extends AbstractType
                 'required' => false,
                 'label_attr' => ['class' => 'custom-checkbox-label'],
                 'attr' => [
-                    'class' => 'custom-checkbox w-5 h-5 text-[#26A69A] bg-gray-100 border-gray-300 rounded focus:ring-[#26A69A] focus:ring-2 cursor-pointer'
+                    'class' => 'custom-checkbox w-5 h-5 text-[#26A69A] bg-gray-100 border-gray-300 rounded focus:ring-[#26A69A] focus:ring-2 cursor-pointer',
+                    'data-contact-form-target' => 'recontactCheckbox',
+                    'data-action' => 'change->contact-form#toggleEmail'
                 ]
 
             ])

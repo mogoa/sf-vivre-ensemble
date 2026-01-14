@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
+use App\Data\TeamMemberProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Finder\Finder;
-use App\Enum\TeamMember;
 
 final class TeamsController extends AbstractController
 {
@@ -25,7 +25,7 @@ final class TeamsController extends AbstractController
 
         foreach ($finder as $file) {
             $folderName = $file->getRelativePath(); // Récupère le nom du dossier
-            $realName = TeamMember::labelForFolder($folderName) ?? $folderName;
+            $realName = TeamMemberProvider::getLabel($folderName) ?? $folderName;
 
             if ($file->getFilename() === '1.jpeg') {
                 $thumbs[] = $this->createThumbnails($file);
@@ -56,16 +56,15 @@ final class TeamsController extends AbstractController
     private function createThumbnails($file): array
     {
         $folderName = $file->getRelativePath(); // Récupère le nom du dossier
-            return
-            [
-                'rootPath'   => 'images/photo_equipe',
-                'folderName' => $folderName,
-                'filename'   => $file->getFilename(),
-                'realname'   => TeamMember::labelForFolder($folderName) ?? $folderName,
-                'description' => TeamMember::descriptionForPerson($folderName),
-                'age'        => TeamMember::ageForPerson($folderName),
-                'position'   => TeamMember::positionForPerson($folderName),
-                'sublabel'   => TeamMember::sublabelforPerson($folderName),
-            ];
+        return [
+            'rootPath'   => 'images/photo_equipe',
+            'folderName' => $folderName,
+            'filename'   => $file->getFilename(),
+            'realname'   => TeamMemberProvider::getLabel($folderName) ?? $folderName,
+            'description' => TeamMemberProvider::getDescription($folderName),
+            'age'        => TeamMemberProvider::getAge($folderName),
+            'position'   => TeamMemberProvider::getPosition($folderName),
+            'sublabel'   => TeamMemberProvider::getSublabel($folderName),
+        ];
     }
 }
