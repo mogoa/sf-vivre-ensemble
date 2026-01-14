@@ -16,21 +16,25 @@
     </div>
 </section>
 
-<section class="relative py-8">
+<section class="relative py-4">
   <div class="w-full bg-gray-100 flex flex-col lg:flex-row items-center">
       <!-- Section texte -->
       <div class="w-full lg:w-1/2 flex flex-col justify-center p-8 lg:p-16 space-y-6">
-          <h2 class="text-4xl lg:text-5xl font-bold text-gray-900">
-              Guillaume LAMBERT
-          </h2>
+        <h2 class="text-4xl lg:text-5xl font-bold text-[#26A69A] mb-4">
+            Guillaume LAMBERT
+        </h2>
 
-          <h5 class="text-xl lg:text-2xl font-semibold text-gray-700">
-              Your Professional Title
-          </h5>
-
-          <p class="text-base lg:text-lg text-gray-600 leading-relaxed">
-              Use this section to share your story, your experience, or the skills you possess. This is an opportunity to create a connection with the visitor and give them the confidence that you have the ability to provide the service they need.
-          </p>
+        <p class="text-base lg:text-lg  text-gray-800 leading-relaxed">
+            Je suis heureux aujourd’hui de vous présenter notre liste «Vivre ensemble à La Roche-Clermault» pour les prochaines élections municipales. Une équipe diverse, unie et engagée pour le développement de la commune dont le projet s’inscrit dans la continuité de l’action de la précédente équipe municipale.
+        </p>
+        <p class="text-base lg:text-lg text-gray-800 leading-relaxed">
+            Parmi nos ambitions, renforcer l’attractivité de la commune, soutenir la vie associative et culturelle, faire entendre la voix de La Roche-Clermault au sein de la communauté de communes Chinon Vienne et Loire. En outre, nous faisons une priorité de la jeunesse, et souhaitons associer les plus jeunes aux futures décisions municipales qui les concernent.
+        </p>
+        <p class="text-base lg:text-lg text-gray-800 leading-relaxed">
+            Au-delà du projet, notre engagement c’est avant tout celui des valeurs : la solidarité, l’écoute et la volonté d’être au service de toutes et tous.
+        <p class="text-base lg:text-lg font-semibold text-gray-800 leading-relaxed">
+            Nous comptons sur vous le 15 mars prochain !
+        </p>
       </div>
 
       <!-- Section image -->
@@ -38,7 +42,7 @@
           <img
               src="{{ asset('images/photo_equipe/Guillaume/1.jpeg') }}"
               alt="Guillaume LAMBERT - Professional Photo"
-              class="w-full max-w-md lg:max-w-lg rounded-lg shadow-2xl transform lg:-translate-y-16 object-cover"
+              class="w-full max-w-md lg:max-w-lg rounded-lg shadow-2xl object-cover"
               loading="lazy"
               width="768"
               height="1024"
@@ -59,7 +63,7 @@
 
     <!-- En-tête -->
     <div class="text-center mb-12">
-        <h2 class="text-4xl lg:text-5xl font-bold text-green-900 mb-6">
+        <h2 class="text-4xl lg:text-5xl font-bold text-[#26A69A] mb-6">
             Programme
         </h2>
 
@@ -77,16 +81,24 @@
             {% for program in programs %}
 
             <div class="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#4ECDC4]">
-                <div class="mb-6">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#4ECDC4] to-[#26A69A] rounded-full flex items-center justify-center mb-4">
+                <!-- Header: Icon and Name -->
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#4ECDC4] to-[#26A69A] rounded-full flex items-center justify-center shrink-0">
                         <i class="fa-solid {{ program.icon }} text-white text-2xl"></i>
                     </div>
-                    <p class="text-gray-700 leading-relaxed">
-                        {{ program.content }}
-                    </p>
+                    <p class="font-semibold text-[#26A69A] text-lg leading-tight">{{ program.name }}</p>
                 </div>
-                <div class="pt-4 border-t border-[#4ECDC4]/30">
-                    <p class="font-semibold text-gray-900 text-lg">{{ program.name }}</p>
+
+                <!-- Content -->
+                <div>
+                    <p class="text-gray-700 leading-relaxed">
+                        {% for content in program.contents %}
+                            {{ content|raw }}
+                            {% if not loop.last %}
+                                <br><br>
+                            {% endif %}
+                        {% endfor %}
+                    </p>
                 </div>
             </div>
             {% endfor %}

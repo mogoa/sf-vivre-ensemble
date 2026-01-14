@@ -1,5 +1,183 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block title %}Mentions légales - Vivre ensemble à La Roche-Clermault{% endblock %}
 
+{% block body %}
+<section class="mx-auto max-w-4xl px-6 py-12">
+    <h1 class="text-4xl font-extrabold text-[#26A69A] mb-8">
+        Mentions légales
+    </h1>
+
+    <div class="prose prose-lg max-w-none text-neutral-700 space-y-8">
+
+        {# Bloc Éditeur #}
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-[#4ECDC4] mb-3">
+                Éditeur du site
+            </h2>
+            <p class="leading-relaxed">
+                Le présent site internet est édité par la liste candidate
+                <strong>« Vivre ensemble à La Roche-Clermault »</strong>
+                dans le cadre des élections municipales des 15 et 22 mars 2026 à La Roche-Clermault (Indre-et-Loire, 37).
+            </p>
+            <p class="mt-2 leading-relaxed">
+                <strong>Adresse :</strong> [ADRESSE POSTALE À COMPLÉTER]<br>
+                <strong>Responsable de publication :</strong> Guillaume LAMBERT<br>
+                <strong>Contact :</strong> <a href="mailto:contact@vivreensemble-larocheclermault.fr" class="text-[#26A69A] hover:underline">contact@vivreensemble-larocheclermault.fr</a>
+            </p>
+            <p class="mt-2 leading-relaxed">
+                En sa qualité de directeur de publication, Guillaume LAMBERT est responsable
+                de l'ensemble des contenus publiés sur ce site et sur les canaux de communication
+                associés (réseaux sociaux, newsletter).
+            </p>
+
+        </div>
+
+        {# Bloc Hébergeur #}
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-[#4ECDC4] mb-3">
+                Hébergeur
+            </h2>
+            <p class="leading-relaxed">
+                Le site est hébergé par :<br>
+                <strong>o2switch</strong><br>
+                222-224 Boulevard Gustave Flaubert<br>
+                63000 Clermont-Ferrand, France<br>
+                Site web : <a href="https://www.o2switch.fr" target="_blank" rel="noopener noreferrer" class="text-[#26A69A] hover:underline">www.o2switch.fr</a>
+            </p>
+        </div>
+
+        {# Bloc Propriété intellectuelle #}
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-[#4ECDC4] mb-3">
+                Propriété intellectuelle
+            </h2>
+            <p class="leading-relaxed">
+                L'ensemble des contenus présents sur ce site (textes, images, vidéos, graphismes, logos) est la propriété de
+                <strong>« Vivre ensemble à La Roche-Clermault »</strong>
+                ou fait l'objet d'une autorisation d'utilisation.
+            </p>
+            <p class="mt-2 leading-relaxed">
+                Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site,
+                quel que soit le moyen ou le procédé utilisé, est interdite sans l'autorisation écrite préalable de l'éditeur.
+            </p>
+            <p class="mt-2 leading-relaxed">
+                Les photographies présentes sur le site sont libres de droits ou utilisées avec autorisation.
+            </p>
+        </div>
+
+        {# Bloc Données personnelles #}
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-[#4ECDC4] mb-3">
+                Protection des données personnelles
+            </h2>
+            <p class="leading-relaxed">
+                Dans le cadre de l'utilisation du formulaire de contact, nous collectons les données suivantes :
+                nom, prénom et adresse e-mail si celui-ci est renseigné par l'utilisateur et que la case "Je souhaite être recontacter" est cochée.
+            </p>
+            <p class="mt-2 leading-relaxed">
+                Ces données sont collectées dans le but de répondre à vos messages et de vous tenir informé(e) de l'actualité
+                de la liste « Vivre ensemble à La Roche-Clermault » si vous en faites la demande.
+            </p>
+            <p class="mt-2 leading-relaxed">
+                Le responsable de traitement est Guillaume LAMBERT. Vous disposez d'un droit d'accès, de rectification,
+                d'effacement et d'opposition concernant vos données personnelles.
+                Pour exercer ces droits, contactez-nous à :
+                <a href="mailto:contact@vivreensemble-larocheclermault.fr" class="text-[#26A69A] hover:underline">contact@vivreensemble-larocheclermault.fr</a>.
+            </p>
+            <p class="mt-2 leading-relaxed">
+                Pour plus d'informations, consultez notre
+                <a href="{{ path('privacy_policy') }}" class="text-[#26A69A] hover:underline font-semibold">Politique de confidentialité</a>.
+            </p>
+        </div>
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-[#4ECDC4] mb-3">
+                Cookies et traceurs
+            </h2>
+            <p class="leading-relaxed">
+                Ce site n'utilises aucun cookie ni aucune mesure d'audience pour améliorer votre expérience de navigation et analyser le trafic.
+            </p>
+            <p class="mt-2 leading-relaxed">
+                Conformément à la directive ePrivacy et au RGPD, votre consentement préalable est requis
+                pour le dépôt de ces cookies. Néanmoins, en l'absence de cookie, aucun consentement ne vous a été proposé.
+            </p>
+
+        </div>
+
+        {# Bloc Contexte électoral #}
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-[#4ECDC4] mb-3">
+                Contexte électoral
+            </h2>
+            <p class="leading-relaxed">
+                Ce site s'inscrit dans le cadre de la campagne électorale pour les
+                <strong>élections municipales de La Roche-Clermault</strong>, qui se tiendront les
+                <strong>15 et 22 mars 2026</strong>.
+            </p>
+            <p class="mt-2 leading-relaxed">
+                Conformément aux règles encadrant la communication en période pré-électorale et électorale
+                (code électoral, règlement européen sur la transparence de la publicité politique),
+                ce site respecte les principes de neutralité, d'égalité entre candidats et de transparence.
+            </p>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-[#4ECDC4] mb-3">
+                Absence de présence sur les réseaux sociaux
+            </h2>
+            <p class="leading-relaxed">
+                La liste « Vivre ensemble à La Roche-Clermault » a fait le choix de <strong>ne pas être présente
+                sur les réseaux sociaux</strong> (Facebook, Instagram, X, TikTok, etc.) dans le cadre de la campagne
+                électorale des municipales 2026.
+            </p>
+            <p class="mt-2 leading-relaxed">
+                <strong>Mise en garde :</strong> Toute page, profil, groupe ou publication sur les réseaux sociaux
+                utilisant le nom « Vivre ensemble à La Roche-Clermault » ou prétendant représenter notre liste
+                <strong>n'émane pas de notre équipe</strong> et constitue une usurpation d'identité.
+            </p>
+            <p class="mt-2 leading-relaxed">
+                Le seul canal de communication officiel de la liste est le présent site internet :
+                <strong>{{ app.request.schemeAndHttpHost }}</strong>.
+                Pour toute question ou information, contactez-nous à :
+                <a href="mailto:contact@vivreensemble-larocheclermault.fr"
+                class="text-[#26A69A] hover:underline font-semibold">
+                    contact@vivreensemble-larocheclermault.fr
+                </a>.
+            </p>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-[#4ECDC4] mb-3">
+                Règles encadrant la communication électorale
+            </h2>
+            <p class="leading-relaxed">
+                Conformément au code électoral et aux règles édictées par l'Association des Maires de France,
+                la communication de la liste « Vivre ensemble à La Roche-Clermault » respecte les principes suivants
+                à compter du 1er septembre 2025 :
+            </p>
+            <ul class="mt-3 ml-6 list-disc space-y-2 leading-relaxed">
+                <li><strong>Neutralité</strong> : absence de propagande ou de polémique électorale dans les communications institutionnelles</li>
+                <li><strong>Interdiction de la publicité commerciale</strong> : aucun achat d'espace publicitaire (Google Ads, Facebook Ads, presse payante) pour promouvoir la liste</li>
+                <li><strong>Interdiction des numéros gratuits</strong> : aucun numéro vert ou appel gratuit ne peut être communiqué au public</li>
+                <li><strong>Affichage réglementé</strong> : seuls les emplacements officiels réservés par la mairie sont autorisés</li>
+                <li><strong>Interdiction de diffusion</strong> : à partir de la veille du scrutin (14 mars 2026 à 0h), aucun document de propagande ne peut être distribué ou diffusé, y compris sur les réseaux sociaux</li>
+            </ul>
+        </div>
+
+
+
+        {# Bloc Crédits #}
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-[#4ECDC4] mb-3">
+                Crédits et réalisation
+            </h2>
+            <p class="leading-relaxed">
+                Conception et développement : Loïc TESSIER<br>
+                Design graphique : Vivre ensemble à La Roche-Clermault<br>
+                Technologies : Symfony, Tailwind CSS
+            </p>
+        </div>
+
+    </div>
+</section>
 {% endblock %}
