@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Data\ProgramProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -34,30 +35,13 @@ final class HomeController extends AbstractController
                 'realname'   => null,
             ];
         }
-        //dd($files);
 
-        $programs = [
-            [
-                'name' => 'Attractivité',
-                'content' => 'Apporter une nouvelle dynamique à notre ville en valorisant son patrimoine et en soutenant les initiatives locales.',
-                'icon' => 'fa-city'
-            ],
-            [
-                'name' => 'Logement',
-                'content' => 'Engagé à améliorer l\'accès au logement pour tous les habitants de La Roche-Clermault.',
-                'icon' => 'fa-house'
-            ],
-            [
-                'name' => 'La jeunesse',
-                'content' => 'promouvoir des activités et des espaces dédiés aux jeunes pour favoriser leur épanouissement.',
-                'icon' => 'fa-child'
-            ],
-        ];
+        dump(ProgramProvider::getRandomPrograms(3));
 
         return $this->render('home/index.html.twig', [
             'page_title' => 'Vivre ensemble à La Roche-Clermault',
             'image_files' => $files,
-            'programs' => $programs,
+            'programs' => ProgramProvider::getRandomPrograms(3),
         ]);
     }
 

@@ -46,7 +46,7 @@ class ContactController extends AbstractController
 
             // Création de l'email
             $email = (new TemplatedEmail())
-                ->from($data->email)
+                ->from('noreply@vivreensemble-larocheclermault.fr')
                 //->to()
                 ->subject('Nouveau message de contact')
                 ->htmlTemplate('emails/contact.html.twig')
