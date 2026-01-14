@@ -36,8 +36,6 @@ final class HomeController extends AbstractController
             ];
         }
 
-        dump(ProgramProvider::getRandomPrograms(3));
-
         return $this->render('home/index.html.twig', [
             'page_title' => 'Vivre ensemble à La Roche-Clermault',
             'image_files' => $files,
