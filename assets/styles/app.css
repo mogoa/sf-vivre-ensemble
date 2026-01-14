@@ -75,9 +75,12 @@ body {
 }
 
 /* Active page */
-.menu-link.active,
-.mobile-link.active {
+.menu-link.active {
   color: #26A69A;
+}
+
+.mobile-link.active {
+  color: white;
 }
 /** ********* END NAVBAR CUSTOM STYLES ********** **/
 
