@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class ElectionController extends AbstractController
 {
-    #[Route('/elections', name: 'elections')]
+    #[Route('/elections', name: 'elections', options: ['sitemap' => true])]
     public function index(): Response
     {
         return $this->render('elections/index.html.twig', [

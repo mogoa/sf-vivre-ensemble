@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class ProgramsController extends AbstractController
 {
-    #[Route('/programs', name: 'programs')]
+    #[Route('/programs', name: 'programs', options: ['sitemap' => true])]
     public function index(): Response
     {
 

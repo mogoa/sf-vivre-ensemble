@@ -11,7 +11,7 @@ use Symfony\Component\Finder\Finder;
 final class TeamsController extends AbstractController
 {
 
-    #[Route('/teams', name: 'teams')]
+    #[Route('/teams', name: 'teams', options: ['sitemap' => true])]
     public function index(): Response
     {
         $projectDir = $this->getParameter('kernel.project_dir');
