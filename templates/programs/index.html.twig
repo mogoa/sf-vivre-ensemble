@@ -1,5 +1,51 @@
 {% extends 'base.html.twig' %}
 
+{% block structured_data %}
+{{ parent() }} {# Garde le JSON-LD de base #}
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Programme électoral - Vivre ensemble à La Roche-Clermault",
+        "description": "Programme complet de la liste Vivre ensemble pour les élections municipales de La Roche-Clermault des 15 et 22 mars 2026",
+        "url": "{{ url('programs') }}",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Vivre ensemble à La Roche-Clermault",
+            "url": "{{ app.request.schemeAndHttpHost }}"
+        },
+        "about": {
+            "@type": "Event",
+            "name": "Élections municipales La Roche-Clermault 2026",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "startDate": "2026-03-15",
+            "endDate": "2026-03-22",
+            "location": {
+            "@type": "Place",
+            "name": "La Roche-Clermault",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "La Roche-Clermault",
+                "postalCode": "37500",
+                "addressCountry": "FR"
+            }
+            },
+            "organizer": {
+            "@type": "Organization",
+            "name": "Vivre ensemble à La Roche-Clermault",
+            "url": "{{ app.request.schemeAndHttpHost }}"
+            }
+        }
+        }
+    </script>
+{% endblock %}
+
+
+{% block meta_keywords %}
+Programme
+{% endblock %}
+
 {% block body %}
 
 <!-- Grille de programme dynamique -->

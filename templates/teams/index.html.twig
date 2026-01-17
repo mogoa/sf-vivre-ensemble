@@ -1,4 +1,36 @@
 {% extends 'base.html.twig' %}
+
+{% block structured_data %}
+    {{ parent() }}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Notre équipe - Vivre ensemble à La Roche-Clermault",
+      "description": "Présentation des candidats de la liste Vivre ensemble pour les élections municipales de La Roche-Clermault 2026",
+      "url": "{{ url('teams') }}",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Vivre ensemble à La Roche-Clermault",
+        "url": "{{ app.request.schemeAndHttpHost }}"
+      },
+      "about": {
+        "@type": "Event",
+        "name": "Élections municipales La Roche-Clermault 2026",
+        "startDate": "2026-03-15",
+        "organizer": {
+          "@type": "Organization",
+          "name": "Vivre ensemble à La Roche-Clermault"
+        }
+      }
+    }
+    </script>
+{% endblock %}
+
+{% block meta_keywords %}
+équipe, candidats
+{% endblock %}
+
 {% block body %}
 
 <section class="relative">
