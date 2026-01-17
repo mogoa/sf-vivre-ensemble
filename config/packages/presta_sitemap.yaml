@@ -1,0 +1,9 @@
+# config/packages/presta_sitemap.yaml
+presta_sitemap:
+    default_section: static
+    # Limite par fichier (50k URLs max selon spec Google)
+    items_by_set: 50000
+    defaults:
+        priority: 1
+        changefreq: daily
+        lastmod: now

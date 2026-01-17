@@ -1,7 +1,7 @@
-<footer class="bg-gradient-to-r from-[#4ECDC4] to-[#26A69A] text-white bottom-0 w-full">
+<footer class="bg-linear-to-r from-[#4ECDC4] to-[#26A69A] text-white bottom-0 w-full">
     <div class="mx-auto max-w-6xl px-6 py-8">
         <!-- Footer Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <!-- Section: About -->
             <div>
                 <h3 class="font-bold text-lg mb-2">
@@ -13,11 +13,11 @@
             </div>
 
             <!-- Section: Links -->
-            <div>
+            <div class="align-right md:text-right">
                 <h3 class="font-bold text-lg mb-3">
                     Liens utiles
                 </h3>
-                <ul class="space-y-2 text-sm">
+                <ul class="space-y-1 text-sm">
                     <li>
                         <a href="{{ path('legal_mentions') }}" class="text-white/80 hover:text-white transition-colors">
                             Mentions légales
@@ -35,33 +35,5 @@
                     </li>
                 </ul>
             </div>
-
-{#             <!-- Section: Information -->
-            <div>
-                <h3 class="font-bold text-lg mb-3">
-                    Informations
-                </h3>
-                <p class="text-white/80 text-sm mb-3">
-                    <span class="font-semibold">Responsable :</span><br>
-                    Jean Dupont
-                </p>
-                <p class="text-white/80 text-sm">
-                    <span class="font-semibold">Hébergeur :</span><br>
-                    <a href="https://www.o2switch.fr" class="text-white/80 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
-                        o2switch
-                    </a>
-                </p>
-            </div>
-        </div> #}
-
-        <!-- Footer Bottom -->
-        <div class="py-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-white/70">
-            <p>
-                © 2026 Vivre Ensemble à La Roche-Clermault · Élections municipales 2026
-            </p>
-            <p>
-                1 rue de l'Exemple, 37500 La Roche-Clermault
-            </p>
-        </div>
     </div>
 </footer>

@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ContactController extends AbstractController
 {
-    #[Route('/contact', name: 'contact')]
+    #[Route('/contact', name: 'contact', options: ['sitemap' => true])]
     public function index(Request $request, MailerInterface $mailer, SessionInterface $session): Response
     {
         $contactDTO = new ContactDTO();

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Presta\SitemapBundle\Sitemap\Url\UrlConcrete;
 use App\Data\ProgramProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,7 +12,7 @@ use Symfony\Component\Finder\Finder;
 
 final class HomeController extends AbstractController
 {
-    #[Route('/', name: 'home')]
+    #[Route('/', name: 'home', options: ['sitemap' => ['priority' => 1]])]
     public function index(): Response
     {
         $projectDir = $this->getParameter('kernel.project_dir');
@@ -44,7 +45,7 @@ final class HomeController extends AbstractController
     }
 
 
-    #[Route('/legal_mentions', name: 'legal_mentions')]
+    #[Route('/legal_mentions', name: 'legal_mentions', options: ['sitemap' => ['priority' => 0.3, 'changefreq' => UrlConcrete::CHANGEFREQ_MONTHLY]])]
     public function legal(): Response
     {
         return $this->render('home/legal.html.twig', [
@@ -52,7 +53,7 @@ final class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/privacy_policy', name: 'privacy_policy')]
+    #[Route('/privacy_policy', name: 'privacy_policy', options: ['sitemap' => ['priority' => 0.3, 'changefreq' => UrlConcrete::CHANGEFREQ_MONTHLY]])]
     public function privacy_policy(): Response
     {
         return $this->render('home/privacy_policy.html.twig', [

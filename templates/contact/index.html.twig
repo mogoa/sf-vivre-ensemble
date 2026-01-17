@@ -1,6 +1,42 @@
 {# templates/contact/index.html.twig #}
 {% extends 'base.html.twig' %}
 
+{% block structured_data %}
+    {{ parent() }}
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact - Vivre ensemble à La Roche-Clermault",
+        "description": "Formulaire de contact pour joindre l'équipe de la liste Vivre ensemble à La Roche-Clermault",
+        "url": "{{ url('contact') }}",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Vivre ensemble à La Roche-Clermault",
+            "url": "{{ app.request.schemeAndHttpHost }}"
+        },
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "Vivre ensemble à La Roche-Clermault",
+            "url": "{{ app.request.schemeAndHttpHost }}",
+            "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Service",
+            "email": "contact@vivreensemble-larocheclermault.fr",
+            "availableLanguage": "French",
+            "areaServed": "FR"
+            }
+        }
+        }
+    </script>
+{% endblock %}
+
+
+{% block meta_keywords %}
+Contact
+{% endblock %}
+
 {% block body %}
 <section class="w-full bg-gradient-to-b from-white to-gray-50 py-16 lg:py-24">
     <div class="container mx-auto px-4 lg:px-8 max-w-4xl">

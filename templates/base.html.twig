@@ -4,11 +4,31 @@
     <head>
         <meta charset="UTF-8">
         <meta name="description" content="Site officiel de la liste Vivre ensemble à La Roche-Clermault - Élections municipales 2026">
+        <meta name="keywords" content="La Roche-Clermault, élections municipales 2026, Vivre ensemble, Guillaume LAMBERT, {% block meta_keywords %}{% endblock %}">
         <link rel="canonical" href="https://vivreensemble-larocheclermault.fr">
         <meta name="robots" content="index, follow">
         <title>{% block title %}{{ page_title }}{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {# Structured Data - Block pour permettre la surcharge #}
+        {% block structured_data %}
+            <script type="application/ld+json">
+            {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Vivre ensemble à La Roche-Clermault",
+            "url": "https://vivreensemble-larocheclermault.fr",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "contact@vivreensemble-larocheclermault.fr",
+                "contactType": "Campaign"
+            }
+            }
+            </script>
+        {% endblock %}
+        </script>
+
 
         {% block stylesheets %}
                 <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
@@ -27,4 +47,5 @@
         </main>
         {% include 'component/footer.html.twig' %}
     </body>
+
 </html>

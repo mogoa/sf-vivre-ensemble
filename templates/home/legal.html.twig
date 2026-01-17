@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mentions légales - Vivre ensemble à La Roche-Clermault{% endblock %}
+{% block title %}Mentions légales{% endblock %}
 
 {% block body %}
 <section class="mx-auto max-w-4xl px-6 py-12">
@@ -21,12 +21,12 @@
                 dans le cadre des élections municipales des 15 et 22 mars 2026 à La Roche-Clermault (Indre-et-Loire, 37).
             </p>
             <p class="mt-2 leading-relaxed">
-                <strong>Adresse :</strong> [ADRESSE POSTALE À COMPLÉTER]<br>
-                <strong>Responsable de publication :</strong> Loïc TESSIER<br>
+                <strong>Adresse :</strong>20 rue de Launay 37500 La Roche-Clermault<br>
+                <strong>Responsable de publication :</strong> Guillaume LAMBERT<br>
                 <strong>Contact :</strong> <a href="mailto:contact@vivreensemble-larocheclermault.fr" class="text-[#26A69A] hover:underline">contact@vivreensemble-larocheclermault.fr</a>
             </p>
             <p class="mt-2 leading-relaxed">
-                En sa qualité de directeur de publication, Loïc TESSIER est responsable
+                En sa qualité de directeur de publication, Guillaume LAMBERT est responsable
                 de l'ensemble des contenus publiés sur ce site.
             </p>
 
@@ -136,7 +136,9 @@
             </p>
             <p class="mt-2 leading-relaxed">
                 Le seul canal de communication officiel de la liste est le présent site internet :
-                <strong>{{ app.request.schemeAndHttpHost }}</strong>.
+                <p>
+                    <a href="{{ app.request.schemeAndHttpHost }}" class="text-[#26A69A] hover:underline font-semibold">{{ app.request.schemeAndHttpHost }}</a>.
+                </p>
                 Pour toute question ou information, contactez-nous à :
                 <a href="mailto:contact@vivreensemble-larocheclermault.fr"
                 class="text-[#26A69A] hover:underline font-semibold">
@@ -162,21 +164,6 @@
                 <li><strong>Interdiction de diffusion</strong> : à partir de la veille du scrutin (14 mars 2026 à 0h), aucun document de propagande ne peut être distribué ou diffusé, y compris sur les réseaux sociaux</li>
             </ul>
         </div>
-
-
-
-        {# Bloc Crédits #}
-        <div class="mb-8">
-            <h2 class="text-2xl font-bold text-[#4ECDC4] mb-3">
-                Crédits et réalisation
-            </h2>
-            <p class="leading-relaxed">
-                Conception et développement : Loïc TESSIER<br>
-                Design graphique : Vivre ensemble à La Roche-Clermault<br>
-                Technologies : Symfony, Tailwind CSS
-            </p>
-        </div>
-
     </div>
 </section>
 {% endblock %}
