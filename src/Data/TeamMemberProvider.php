@@ -10,14 +10,14 @@ final class TeamMemberProvider
     private const MEMBERS = [
         'Guillaume' => [
             'label' => 'Guillaume Lambert',
-            'sublabel' => 'Marié, 2 enfants, enseignant au lycée Rabelais de Chinon',
+            'sublabel' => 'Enseignant au lycée Rabelais de Chinon',
             'age' => '50',
             'description' => 'Actuellement adjoint au maire, je souhaite, dans la continuité et la dynamique du travail entrepris pendant cette mandature, poursuivre mon engagement au service de La Roche-Clermault et de l\'ensemble des clérimaldien.nes',
             'position' => 1,
         ],
         'Sylvie' => [
             'label' => 'Sylvie Largeau',
-            'sublabel' => 'En concubinage, deux enfants, préparatrice en pharmacie',
+            'sublabel' => 'Préparatrice en pharmacie',
             'age' => '53',
             'description' => 'Actuellement première adjointe au sein de l\'équipe municipale, je souhaite poursuivre mon engagement au service de notre commune, avec la même disponibilité, pour soutenir notre école, nos familles et la qualité de vie de tous',
             'position' => 2,
@@ -29,8 +29,8 @@ final class TeamMemberProvider
             'description' => 'Motivé par le service à la collectivité, je veux contribuer à un village solidaire, dynamique et agréable à vivre.',
             'position' => 3,
         ],
-        'Christelle' => [
-            'label' => 'Christelle Entraigues',
+        'Christele' => [
+            'label' => 'Christèle Entraigues',
             'sublabel' => 'Cadre dans un service médico-social de soutien aux aidants familiaux',
             'age' => '47',
             'description' => 'Adjointe au maire depuis 6 ans, investie depuis 10 ans dans le tissu associatif clérimaldien, je souhaite poursuivre mon engagement au service de notre commune et de ses habitants afin de porter des actions en faveur du dynamisme local et de la qualité de vie de chacun.',
@@ -94,14 +94,14 @@ final class TeamMemberProvider
         ],
         'Noel' => [
             'label' => 'Noël Proust',
-            'sublabel' => 'Marié, 1 enfant, retraité',
+            'sublabel' => 'Retraité',
             'age' => '65',
             'description' => 'J\'aime ma commune et souhaite m\'investir.',
             'position' => 13,
         ],
         'Louise' => [
             'label' => 'Louise Wallart',
-            'sublabel' => 'Psychologue et mère de 2 enfants.',
+            'sublabel' => 'Psychologue',
             'age' => '36',
             'description' => 'Je suis attachée à notre village et souhaite participer à la réflexion commune et aux projets pour le faire vivre et évoluer.',
             'position' => 14,
@@ -115,8 +115,8 @@ final class TeamMemberProvider
         ],
         'Julie' => [
             'label' => 'Julie Mathé',
-            'sublabel' => null,
-            'age' => null,
+            'sublabel' => 'Gestionnaire eau et assainissement',
+            'age' => '40',
             'description' => 'Présidente du comité des fêtes depuis 2 ans, je souhaite m\'investir pleinement pour l\'animation de la commune et le bien-être de ses habitants.',
             'position' => 16,
         ],
@@ -124,7 +124,7 @@ final class TeamMemberProvider
             'label' => 'Baptiste Boutier',
             'sublabel' => 'Restaurateur',
             'age' => '33',
-            'description' => 'je suis restaurateur à mon compte. Je me suis engagé sur la liste pour m\'investir davantage dans la vie de notre commune',
+            'description' => 'Je suis restaurateur à mon compte. Je me suis engagé sur la liste pour m\'investir davantage dans la vie de notre commune',
             'position' => 17,
         ],
     ];
