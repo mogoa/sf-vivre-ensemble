@@ -14,6 +14,13 @@ body {
     background-color: #f3f4f6;
 }
 
+/* Modal transitions */
+[data-modal-overlay] {
+    transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+    opacity: 1;
+    transform: scale(1);
+}
+
 /* Carousel fade + blur transition when an item becomes active */
 /* Flowbite gère le 'hidden', on ajoute juste le fondu par-dessus */
 /* Les slides doivent rester en position absolute mais visibles pour les transitions */
