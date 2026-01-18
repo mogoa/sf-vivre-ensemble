@@ -40,16 +40,16 @@
   <!-- Page title overlayed in front of the carousel -->
 </section>
 
-<section>
+<section data-controller="modal">
 <!-- Grille de programme dynamique -->
 <div class="mx-auto max-w-6xl px-4 py-12">
         <div class="flex flex-wrap justify-center gap-6">
         {% for thumb in thumbs %}
 			{% if loop.index == 1 %}
-				<div class="flex flex-col items-center w-full ">
+				<div class="flex flex-col items-center w-full">
 					<div class="w-96 h-96 rounded-full overflow-hidden shadow-md ">
 						<img class="translate-x-3 scale-125 rounded-full h-full w-full object-cover shadow-xl shadow-gray-800 cursor-pointer hover:scale-140 ease-in transition-all duration-400"
-						srcset="{{ asset(thumb.rootPath ~ '/' ~ thumb.folderName ~ '/' ~ thumb.filename) }}"
+						srcset="{{ asset(thumb.rootPath ~ '/' ~ thumb.folderName ~ '/' ~ thumb.filename) | imagine_filter('team_thumb') }}"
 						data-modal-target="modal-{{ loop.index }}" data-modal-show="modal-{{ loop.index }}"
 						alt="{{ thumb.realname }}">
 					</div>
@@ -62,12 +62,15 @@
 					<p class="mt-2 text-center text-lg leading-tight text-black">
 						{{ thumb.sublabel }}
 					</p>
+					<p class="mt-3 mb-3 text-center text-gray-700 leading-relaxed">
+						{{ thumb.description }}
+					</p>
 				</div>
 			{% else %}
             <div class="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 lg:w-1/4 m-4">
             	<div class="w-72 h-72 sm:w-42 sm:h-42 md:w-54 md:h-54 rounded-full overflow-hidden shadow-2xl">
             		<img class="rounded-full h-full w-full object-cover shadow-xl shadow-gray-800 cursor-pointer hover:scale-130 ease-in transition-all duration-400"
-					srcset="{{ asset(thumb.rootPath ~ '/' ~ thumb.folderName ~ '/' ~ thumb.filename) }}"
+					srcset="{{ asset(thumb.rootPath ~ '/' ~ thumb.folderName ~ '/' ~ thumb.filename) | imagine_filter('team_thumb') }}"
 					data-modal-target="modal-{{ loop.index }}" data-modal-show="modal-{{ loop.index }}"
 					alt="{{ thumb.realname }}">
              	</div>
@@ -93,12 +96,12 @@
             {% endif %}
 
 		<!-- Modal -->
-			<div id="modal-{{ loop.index }}" tabindex="-1" aria-hidden="true" class="hidden fixed inset-0 z-50 flex sm:items-center overflow-y-auto justify-center p-4 bg-black/50">
-				<div class="bg-white rounded-lg shadow-2xl w-auto h-auto max-w-md sm:max-w-2xl max-h-[90vh] overflow-y-auto overflow-x-hidden relative">
+			<div id="modal-{{ loop.index }}" tabindex="-1" class="hidden fixed inset-0 z-9998 items-center justify-center p-4 bg-black/50 [&:not(.hidden)]:flex overflow-hidden">
+				<div class="bg-white rounded-lg shadow-2xl w-full max-w-lg max-h-[90vh] overflow-hidden relative flex flex-col">
 					<!-- Close button -->
 					<button
 						type="button"
-						class="absolute top-4 right-4 inline-flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 w-10 h-10 transition z-30"
+						class="absolute top-4 right-4 inline-flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 w-10 h-10 transition z-9999"
 						data-modal-hide="modal-{{ loop.index }}"
 						aria-label="Fermer"
 					>
@@ -108,34 +111,32 @@
 					</button>
 
 					<!-- Image on top (responsive size) -->
-					<div class="w-full">
-						<img class="w-full h-auto object-cover rounded-t-lg scale-140"
-						srcset="{{ asset(thumb.rootPath ~ '/' ~ thumb.folderName ~ '/' ~ thumb.filename) }}"
+					<div class="w-full overflow-hidden shrink-0">
+						<img class="w-full h-auto object-cover rounded-t-lg"
+						srcset="{{ asset(thumb.rootPath ~ '/' ~ thumb.folderName ~ '/' ~ thumb.filename) | imagine_filter('team_full') }}"
 						alt="{{ thumb.realname }}">
 					</div>
 
 					<!-- Description below -->
-					<div class="relative inset-x-0 bottom-0 z-20">
-						<div class="bg-white backdrop-blur-sm px-6 py-4 text-center">
-							<p class="text-2xl sm:text-3xl font-extrabold text-[#4ECDC4]">
-								{{ thumb.realname }}
-							</p>
-							{% if thumb.age is not null %}
-							<p class="mt-2 text-lg font-semibold text-[#26A69A]">
-								{{ thumb.age }} ans
-							</p>
-							{% endif %}
-							{% if thumb.sublabel is not null %}
-							<p class="mt-2 text-lg font-semibold text-[#26A69A]">
-								{{ thumb.sublabel }}
-							</p>
-							{% endif %}
-							{% if thumb.description is not null %}
-							<p class="mt-3 text-base text-gray-700 leading-relaxed">
-								{{ thumb.description }}
-							</p>
-							{% endif %}
-						</div>
+					<div class="overflow-y-auto grow px-6 py-4 text-center">
+						<p class="text-2xl sm:text-3xl font-extrabold text-[#4ECDC4]">
+							{{ thumb.realname }}
+						</p>
+						{% if thumb.age is not null %}
+						<p class="mt-2 text-lg font-semibold text-[#26A69A]">
+							{{ thumb.age }} ans
+						</p>
+						{% endif %}
+						{% if thumb.sublabel is not null %}
+						<p class="mt-2 text-lg font-semibold text-[#26A69A]">
+							{{ thumb.sublabel }}
+						</p>
+						{% endif %}
+						{% if thumb.description is not null %}
+						<p class="mt-3 text-base text-gray-700 leading-relaxed">
+							{{ thumb.description }}
+						</p>
+						{% endif %}
 					</div>
 				</div>
 			</div>

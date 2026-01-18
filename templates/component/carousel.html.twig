@@ -112,7 +112,7 @@
                 class="hidden"
             >
                 <img
-                    src="{{ asset(image_file.rootPath ~ '/' ~ image_file.folderName ~ '/' ~ image_file.filename) }}"
+                    src="{{ asset(image_file.rootPath ~ '/' ~ image_file.folderName ~ '/' ~ image_file.filename) | imagine_filter('hero_banner') }}"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 h-full object-cover"
                     alt="Slide {{ loop.index }}"
                 />
