@@ -1,0 +1,51 @@
+liip_imagine:
+    # Répertoire de cache des images générées
+    resolvers:
+        default:
+            web_path:
+                cache_prefix: media/cache
+
+    # Driver (gd ou imagick, gd est par défaut)
+    driver: gd
+
+    # Tes filtres / formats d'images
+    filter_sets:
+        # Cache pour ne pas régénérer à chaque fois
+        cache: ~
+
+        # Thumbnails équipe (petites vignettes)
+        team_thumb:
+            quality: 85
+            filters:
+                thumbnail:
+                    size: [400, 400]
+                    mode: outbound  # Crop pour garder le ratio carré
+            post_processors:
+                jpegoptim:
+                    strip_all: true  # Enlève métadonnées EXIF
+                    max: 85
+                    progressive: true
+
+        # Photos équipe full (modal)
+        team_full:
+            quality: 90
+            filters:
+                thumbnail:
+                    size: [800, 800]
+                    mode: inset  # Garde le ratio sans crop
+                relative_resize:
+                    heighten: 800  # Max 800px de hauteur
+            post_processors:
+                jpegoptim:
+                    strip_all: true
+                    max: 90
+                    progressive: true
+
+        # Images de bannière / hero
+        hero_banner:
+            quality: 90
+            post_processors:
+                jpegoptim:
+                    strip_all: true
+                    max: 85
+                    progressive: true
